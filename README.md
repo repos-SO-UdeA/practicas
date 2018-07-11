@@ -59,23 +59,55 @@ La salida debera ser:
 
 La implementación del programa deberá ser hecha de manera modular, de modo que el objetivo realice las siguientes tareas de manera gradual tal y como se muestra a continuación:
 
-* **Fase 1 - codificando las funciones**: dado el siguiente código (c1_parte1.c) completelo complete las funciones es que complete la siguiente el inicialmente el siguiente codigo y lo compile. Si todo esta bien, puede continuar con la **fase 2**; sino, corrija los errores hasta que compile.
+* **Fase 1 - Codificando las funciones**: dado el siguiente código (c1_parte1.c) completelo complete las funciones es que complete la siguiente el inicialmente el siguiente codigo y lo compile. Si todo esta bien, puede continuar con la **fase 2**; sino, corrija los errores hasta que compile.
 
 ```C
 #include <stdio.h>
 
-/* Declaraciones de las funciones */
 
+/*********************************************************/
+/*            Declaraciones de las funciones             */
+/*********************************************************/
+
+/* Funciones de test */
+void testVolverMayuscula(void);
+void testEsLetra(void);
+void testStringToMayuscula(void);
+
+/* Funciones del programa */
 int esLetra(char ch);
-void volverMayuscula(char *ch);
-void contarCaracteres(char s[]);
+void volverMayuscula(char *ch); 
+void stringToMayuscula(char s[]);
 
-int main(void) { 
+
+/*********************************************************/
+/*                     Funcion main                      */
+/*********************************************************/
+
+
+int main(void) {
+  testVolverMayuscula();
+  testEsLetra();
+  testStringToMayuscula();
   return 0;
 }
 
-/* Definiciones de las funciones */
+/*********************************************************/
+/*            Declaraciones de las funciones             */
+/*********************************************************/
 
+#include <stdio.h>
+
+/* Funciones del programa */
+int esLetra(char ch);
+void volverMayuscula(char *ch); 
+void stringToMayuscula(char s[]);
+
+/*********************************************************/
+/*             Definiciones de las funciones             */
+/*********************************************************/
+
+/* Funciones del programa */
 
 /**  
  *   @brief  Determina si un caracter alfabetico
@@ -84,7 +116,7 @@ int main(void) {
  *   @return 1 si el caracter es una letra del alfabeto y 0 si es otro simbolo.
  */
 int esLetra(char ch) {
-  // Coloque a continuacin el código de la función...
+  // Coloque el codigo solucion a continuacion...
   
 }
 
@@ -95,9 +127,10 @@ int esLetra(char ch) {
  *   @return void
  */
 void volverMayuscula(char *ch) {
-   //Coloque a continuacin el código de la función...
-   
+  // Coloque el codigo solucion a continuacion...
+  
 }
+
 
 /**  
  *   @brief  Convierte en mayusculas la cadena de caracteres ingresada.
@@ -106,12 +139,116 @@ void volverMayuscula(char *ch) {
  *   @return void
  */ 
 
-void contarCaracteres(char s[]) {
-  //Coloque a continuacin el código de la función...
+void stringToMayuscula(char s[]) {
+  // Coloque el codigo solucion a continuacion...
   
 }
+```
+
+* **Fase 2 - Testeando las funciones**: Una vez las funciones estan codificadas, verifique que implementen correctamente la logica. Para ello agregue al codigo anterior las siguientes funciones de test, e invoquelas en el main como se muestra a continuacion:
+
+```C
+#include <stdio.h>
+
+
+/*********************************************************/
+/*            Declaraciones de las funciones             */
+/*********************************************************/
+
+/* Funciones de test */
+void testVolverMayuscula(void);
+void testEsLetra(void);
+void testStringToMayuscula(void);
+
+/* Funciones del programa */
+int esLetra(char ch);
+void volverMayuscula(char *ch); 
+void stringToMayuscula(char s[]);
+
+
+/*********************************************************/
+/*                     Funcion main                      */
+/*********************************************************/
+
+
+int main(void) {
+  testVolverMayuscula();
+  testEsLetra();
+  testStringToMayuscula();
+  return 0;
+}
+
+/*********************************************************/
+/*             Definiciones de las funciones             */
+/*********************************************************/
+
+/* Funciones de test */
+
+/**  
+ *   @brief  Funcion para testear volverMayuscula
+ *  
+ *   @param  void
+ *   @return void
+ */
+void testVolverMayuscula(void) {
+  char *p_char;
+  char l1 = 'a', l2 = 'z';
+  p_char = &l2;
+  printf("Minusculas -> %c, %c\n", l1, l2);
+  volverMayuscula(&l1);
+  volverMayuscula(p_char);
+  printf("Mayusculas -> %c, %c\n", l1, *p_char);
+}
+
+/**  
+ *   @brief  Funcion para testear esLetra
+ *  
+ *   @param  void
+ *   @return void
+ */
+void testEsLetra(void) {
+  char c1 = '!', c2 = 's';
+  printf("%c -> %d\n", c1, esLetra(c1));
+  printf("%c -> %d\n", c2, esLetra(c2));
+}
+
+void testStringToMayuscula(void) {
+  char s1[] = "hola que mas!!!\n";
+  char s2[] = "1234 e_-+!!hay";
+  printf("Cadenas en minuscula -> \n");
+  printf("cadena 1: %s\n", s1);
+  printf("cadena 2: %s\n", s2);
+  stringToMayuscula(s1);
+  stringToMayuscula(s2);
+  printf("\nCadenas en mayuscula -> \n");
+  printf("cadena 1: %s\n", s1);
+  printf("cadena 2: %s\n", s2);
+}
+
+/* Funciones del programa */
+
+/* Codigo ya implementado en la fase 1...*/
+```
+Compile y ejecute en esta ocación. Si todo esta bien, la salida será como la mostrada a continuación:
 
 ```
+Minusculas -> a, z
+Mayusculas -> A, Z
+! -> 0
+s -> 1
+Cadenas en minuscula -> 
+cadena 1: hola que mas!!!
+
+cadena 2: 1234 e_-+!!hay
+
+Cadenas en mayuscula -> 
+cadena 1: HOLA QUE MAS!!!
+
+cadena 2: 1234 E_-+!!HAY
+```
+
+* **Fase 3 - Implementacin del código definitivo (el que interactua con el usuario)**: una vez con la certeza de que la funciones trabajan correctamente implemente un programa que permita la interacción con el usuario de modo que cuando este precione la combinación ```Ctrl + D``` o ```Ctrl + C``` el programa se salga. 
+
 
 
 
