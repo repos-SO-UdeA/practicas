@@ -247,10 +247,21 @@ cadena 1: HOLA QUE MAS!!!
 cadena 2: 1234 E_-+!!HAY
 ```
 
-* **Fase 3 - Implementacin del código definitivo (el que interactua con el usuario)**: una vez con la certeza de que la funciones trabajan correctamente implemente un programa que permita la interacción con el usuario de modo que cuando este precione la combinación ```Ctrl + D``` o ```Ctrl + C``` el programa se salga. 
+* **Fase 3 - Implementacin del código definitivo (el que interactua con el usuario)**: una vez con la certeza de que la funciones trabajan correctamente implemente un programa que permita la interacción con el usuario de modo que cuando este precione la combinación ```Ctrl + D``` o ```Ctrl + C``` el programa se salga. Por ejemplo una salida tipica puede ser como la mostrada a continuacin:
 
-
-
+```
+Entrada > hola
+HOLA
+Entrada > nuen
+NUEN
+Entrada > s
+S
+Entrada > casi 12345
+CASI 12345
+Entrada > sisaz
+SISAZ
+Entrada > ^C
+```
 
 
 
